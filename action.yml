@@ -47,6 +47,6 @@ runs:
       if: success() || failure()
       run: |
         ls -la ${{ inputs.path }}/artifact.tar
-        tar -xvf ${{ inputs.path }}/artifact.tar
-        ls -la
+        tar -xvf ${{ inputs.path }}/artifact.tar -C ${{ inputs.path }}
+        ls -la ${{ inputs.path }}
       shell: bash
