@@ -12,7 +12,7 @@ runs:
   steps:
     - name: Download - 1st attempt
       id: download1
-      uses: actions/download-artifact@v3
+      uses: actions/download-artifact@v4
       with:
         name: ${{ inputs.name }}
         path: ${{ inputs.path }}
@@ -20,7 +20,7 @@ runs:
     - name: Download - 2nd attempt
       id: download2
       if: steps.download1.outcome == 'failure'
-      uses: actions/download-artifact@v3
+      uses: actions/download-artifact@v4
       with:
         name: ${{ inputs.name }}
         path: ${{ inputs.path }}
@@ -28,7 +28,7 @@ runs:
     - name: Download - 3rd attempt
       id: download3
       if: steps.download2.outcome == 'failure'
-      uses: actions/download-artifact@v3
+      uses: actions/download-artifact@v4
       with:
         name: ${{ inputs.name }}
         path: ${{ inputs.path }}
